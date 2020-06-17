@@ -39,9 +39,6 @@ def merge(arrA, arrB):
         # increase merged_array by 1
         idx += 1
         # increase arrA_idx by 1
-        arrA_idx += 1
-
-     # loop if starting index <  length of arrB_idx
     while arrB_idx < len(arrB):
         # take index in the merged array and set it to element of the arrB_idx index
         merged_arr[idx] = arrB[arrB_idx]
@@ -57,6 +54,11 @@ def merge(arrA, arrB):
 
 def merge_sort(arr):
     # Your code here
+    if len(arr) > 1:
+        left = merge_sort(arr[:len(arr) // 2])
+        right = merge_sort(arr[len(arr) // 2:])
+        # merge the left and right arrays
+        arr = merge(left, right)
 
     return arr
 
